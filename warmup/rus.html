@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"></link>
+		<style id="webmakerstyle">
+			input[type="checkbox"] {
+		  		min-width: 30px;
+		  	}
+			[data-percent] {
+				position: relative;
+				background-size: 100% 8px;
+				background-repeat: no-repeat;
+				background-position: bottom;
+			}
+			[data-percent]:after {
+				content: attr(data-percent) "%";
+				position: absolute;
+				top: 100%;
+				left: 20px;
+				color: #28a745;
+			}
+
+			.text-done {
+				text-decoration: line-through;
+			}
+			
+			@media screen and (min-width: 576px) {
+				[data-percent] {
+					background-size: 0;
+				}
+				
+				[data-percent]:after {
+					content: none;
+				}
+			}
+		</style>
+	</head>
+<body>
+	<div class="jumbotron">
+	    <div class="container">
+	        <div class="font-weight-normal h1 text-center">Упражнения для разминки</div>
+	    </div>
+	</div>
+	<div id="app" class="container">
+	    
+	    <div class="progress mb-4 mt-4 d-none d-sm-block">
+	        <div class="progress-bar bg-success" :style="{width: percents + '%'}">
+	            {{ percents }}%
+	        </div>
+	    </div>
+	    <div class="row" :data-percent="percents" 
+			 :style="{ backgroundImage: 'linear-gradient(to right, #28a745 0, #28a745 ' + percents + '%, transparent 0)' }">
+	        <div class="col-sm-4 mb-3" v-for="(task, i) in tasks" v-if="i <= done.length">
+				<label class="h4 font-weight-normal card-title d-flex align-items-center"
+					   :class="{'text-success': done[i] === task, 'text-done': done[i] === task, 'text-danger': i === done.length}" >
+					<input class="mr-2" type="checkbox" v-model="done" :value="task" :disabled="i < done.length" />
+					{{ task }}
+				</label>
+	        </div>
+	    </div>
+		<br/>
+	    <div class="row text-info" v-show="done.length === tasks.length">
+	        <div class="col">
+				<div class="display-2 d-none d-sm-block">Разминка окончена!!!</div>
+				<div class="display-4 d-sm-none text-center">Всё. Норм.</div>
+			</div>
+	    </div>
+		<br/>
+	</div>
+
+	<script src="https://unpkg.com/vue@2.4.4/dist/vue.min.js"></script>
+	<script type="text/javascript">
+	'use strict';
+
+	new Vue({
+	    el: '#app',
+	    data: {
+	        tasks: [
+	        	'Вращения головы', 
+	        	'Вращения руки в плечах', 
+	        	'Вращения кистей', 
+	        	'Вращения руки в локтях', 
+	        	'Вращения рук - полные', 
+	        	'Вращения туловища', 
+	        	'Шаг на месте', 
+	        	'Подъемы ног', 
+	        	'Наклоны вперед', 
+	        	'Наклоны в сторону', 
+	        	'Мельница', 
+	        	'Вращения стоп с опорой'
+	        ],
+	        done: []
+	    },
+		computed: {
+			percents: function () {
+				return Math.floor((this.done.length / this.tasks.length) * 100);
+			}
+		}
+	});
+	</script>
+	</body>
+</html>

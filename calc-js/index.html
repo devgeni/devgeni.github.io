@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>The Cashback Calculator</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="The Cashback Calculator">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+      @viewport {
+          width: device-width;
+          height: device-height;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div class="row column text-center"><br>
+      <h2>The Cashback Calculator</h2>
+      <p>Cashback up to <span>30%</span> from your spendings.</p><br>
+    </div>
+    <form name="Calculator">
+      <div class="row">
+        <div class="columns small-24 medium-16 large-18">
+          <p><strong>I spend on fuel monthly:</strong></p>
+          <div class="row">
+            <div class="columns small-14 medium-18 large-20">
+              <div class="slider" data-slider data-start="1" data-initial-start="40" data-end="1000" data-step="1" data-changed-delay="100"><span class="slider-handle" data-val="40" data-slider-handle role="slider" tabindex="1" aria-controls="slider-output"></span><span class="slider-fill" data-slider-fill></span></div>
+            </div>
+            <div class="columns small-10 medium-6 large-4">
+              <div class="calc__box" data-val="$">
+                <input class="calc__input" id="slider-output" type="number" value="40" name="h5">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns small-24 medium-7 large-6">
+          <div class="cacheback">
+            <div class="cacheback__header">Cashback:</div><span class="cacheback__percent" id="k5">30 %</span>&nbsp;=&nbsp;<span class="cacheback__summ" id="j10">$12</span>
+          </div>
+        </div>
+      </div>
+      <div class="row column">
+        <div class="table-scroll">
+          <table class="calc">
+            <thead>
+              <tr>
+                <th>% rate by level</th>
+                <th>The amount of <br>invited users</th>
+                <th>Overall amount of users</th>
+                <th>Spending <br>amount for month</th>
+                <th>Summ added by level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">0,3%</td>
+                <td> 
+                  <label class="calc__label" for="calc-1a">I shared <br>this app with </label>
+                  <div class="calc__box calc__box-ppl" data-val="people">
+                    <input class="calc__input" id="calc-1a" value="6" type="number" name="d6">
+                  </div>
+                </td>
+                <td class="text-center"> <strong id="f6">6</strong></td>
+                <td> 
+                  <label class="calc__label" for="calc-2a">Each one of them <br>spend on fuel: </label>
+                  <div class="calc__box" data-val="$">
+                    <input class="calc__input" id="calc-2a" value="40" type="number" name="h6">
+                  </div>
+                </td>
+                <td class="text-center"> <strong id="j6">0.72</strong></td>
+              </tr>
+              <tr>
+                <td class="text-center">0,2%</td>
+                <td> 
+                  <label class="calc__label" for="calc-1b">Each one of them <br>shared with </label>
+                  <div class="calc__box calc__box-ppl" data-val="people">
+                    <input class="calc__input" id="calc-1b" value="6" type="number" name="d7">
+                  </div>
+                </td>
+                <td class="text-center"> <strong id="f7">36</strong></td>
+                <td>
+                  <label class="calc__label" for="calc-2b">Each one of them <br>spend on fuel: </label>
+                  <div class="calc__box" data-val="$">
+                    <input class="calc__input" id="calc-2b" value="40" type="number" name="h7">
+                  </div>
+                </td>
+                <td class="text-center"> <strong id="j7">2.88</strong></td>
+              </tr>
+              <tr>
+                <td class="text-center">0,1%</td>
+                <td> 
+                  <label class="calc__label" for="calc-1c">Each one of those <br>shared too with </label>
+                  <div class="calc__box calc__box-ppl" data-val="people">
+                    <input class="calc__input" id="calc-1c" value="6" type="number" name="d8">
+                  </div>
+                </td>
+                <td class="text-center"> <strong id="f8">216</strong></td>
+                <td>
+                  <label class="calc__label" for="calc-2c">Each one of them <br>spend on fuel: </label>
+                  <div class="calc__box" data-val="$">
+                    <input class="calc__input" id="calc-2c" value="40" type="number" name="h8">
+                  </div>
+                </td>
+                <td class="text-center"> <strong id="j8">8.64</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+    <script src="js/lib.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+  </body>
+</html>
